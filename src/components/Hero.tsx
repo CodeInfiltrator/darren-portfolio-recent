@@ -53,7 +53,7 @@ export function Hero() {
           <div className="tech-grid-overlay" />
 
           <img
-            src="/images/profile.jpg?v=white-2"
+            src="/images/profile.jpg"
             alt="Frizzia Darren profile photo"
             className="profile-image tech-profile-image"
           />
