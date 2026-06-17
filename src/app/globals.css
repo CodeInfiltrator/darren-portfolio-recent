@@ -3806,3 +3806,151 @@ body {
   z-index: 1 !important;
   pointer-events: none !important
 }
+
+/* ========================= */
+/* Emergency Scroll Performance Fix */
+/* ========================= */
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  background: #08090d !important;
+}
+
+body {
+  overflow-x: hidden;
+  background: #08090d !important;
+}
+
+/* Stop full-page enter blur */
+.tech-page {
+  animation: none !important;
+  transition: none !important;
+  overflow-x: hidden !important;
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(215, 255, 114, 0.045),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 86% 22%,
+      rgba(143, 119, 255, 0.045),
+      transparent 32rem
+    ),
+    linear-gradient(180deg, #08090d 0%, #0b0d12 48%, #08090d 100%) !important;
+}
+
+/* Matikan semua blur scroll */
+.scroll-reveal,
+.scroll-reveal *,
+.cinematic-section,
+.cinematic-section * {
+  filter: none !important;
+}
+
+/* Jangan paksa section jadi fullscreen */
+.cinematic-section {
+  min-height: auto !important;
+  display: block !important;
+  transform: none !important;
+  opacity: 1 !important;
+  padding-top: clamp(64px, 7vw, 96px) !important;
+  padding-bottom: clamp(64px, 7vw, 96px) !important;
+}
+
+/* Hero saja yang boleh besar */
+.tech-page > .hero,
+.tech-page > .hero.cinematic-section {
+  min-height: calc(100svh - 72px) !important;
+  display: grid !important;
+  padding-top: 96px !important;
+  padding-bottom: 64px !important;
+}
+
+/* About jangan terlalu jauh */
+.tech-page #about {
+  padding-top: 56px !important;
+}
+
+/* Remove cinematic variable transforms */
+.cinematic-section > .section-title,
+.cinematic-section > .about-grid,
+.cinematic-section > .skills-grid,
+.cinematic-section > .projects-grid,
+.cinematic-section > .timeline,
+.cinematic-section > .modeling-panel,
+.cinematic-section > .contact-section,
+.cinematic-section > .hero-copy,
+.cinematic-section > .hero-card {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease !important;
+  will-change: auto !important;
+}
+
+/* Matikan glow section cinematic yang berat */
+.cinematic-section::before {
+  display: none !important;
+}
+
+/* Stop background parallax saat scroll */
+.tech-bg-grid,
+.tech-network-canvas,
+.fd-network-canvas,
+.tech-page::before,
+.tech-page::after {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Background animations dibuat ringan */
+.tech-page::before,
+.tech-page::after,
+.tech-bg-grid {
+  animation: none !important;
+}
+
+/* Canvas network tetap ada tapi lebih ringan */
+.tech-page .fd-network-canvas,
+.tech-page .tech-network-canvas {
+  opacity: 0.34 !important;
+  will-change: auto !important;
+}
+
+/* Kurangi beban card hover */
+.tech-page .glass-panel,
+.tech-page .stat-card,
+.tech-page .skill-card,
+.tech-page .project-card,
+.tech-page .timeline-item,
+.tech-page .contact-section,
+.tech-page .hero-card {
+  will-change: auto !important;
+}
+
+/* Backdrop blur dikurangi supaya scroll lebih ringan */
+.hero-card,
+.glass-panel,
+.stat-card,
+.skill-card,
+.project-card,
+.timeline-item,
+.contact-section {
+  backdrop-filter: blur(14px) !important;
+}
+
+/* Disable hover animation di device yang tidak perlu */
+@media (hover: none) {
+  .tech-page .glass-panel:hover,
+  .tech-page .stat-card:hover,
+  .tech-page .skill-card:hover,
+  .tech-page .project-card:hover,
+  .tech-page .timeline-item:hover,
+  .tech-page .hero-card:hover {
+    transform: none !important;
+  }
+}

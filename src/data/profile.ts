@@ -110,7 +110,7 @@ export const profile = {
   },
   {
     title: "Memento",
-    category: "iOS App Prototype",
+    category: "iOS App",
     description:
       "An iOS app concept designed to help users preserve meaningful memories through a more personal, visual, and interactive digital experience.",
     impact:
