@@ -80,7 +80,7 @@ function WhatsAppIcon() {
 
 export default function Home() {
   const whatsappUrl =
-    "https://api.whatsapp.com/send?phone=082127728082";
+    "https://api.whatsapp.com/send?phone=6282127728082";
 
   return (
     <>
