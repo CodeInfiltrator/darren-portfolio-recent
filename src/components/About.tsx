@@ -6,8 +6,8 @@ export function About() {
     <section className="section container" id="about">
       <SectionTitle
         eyebrow="About"
-        title="Building digital products through code, research, and product thinking."
-        description="This portfolio highlights my journey as a Computer Science student and Apple Developer Academy learner, focused on iOS development, front-end engineering, and human-centered product building."
+        title="Building user-centered digital products."
+        description="Exploring iOS development, front-end and back-end engineering, Product and Project Management through real projects."
       />
 
       <div className="about-grid">

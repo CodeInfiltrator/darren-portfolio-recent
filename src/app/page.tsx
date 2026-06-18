@@ -11,15 +11,15 @@ const links = [
   {
     title: "Modeling Portfolio",
     description:
-      "Runway, photoshoot, personal branding, and selected visual portfolio.",
+      "Campaign, Runway, photoshoot, videoshoot, personal branding, and selected visual portfolio.",
     href: "https://www.canva.com/design/DAGZXa15-x4/Uv-gGr91Ne1gI0KZvVjZ5Q/edit?utm_content=DAGZXa15-x4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
     label: "Open Modeling Portfolio",
     external: true
   },
   {
-    title: "Comp-Card",
+    title: "Modeling Comp-Card",
     description:
-      "Model profile, measurements, selected photos, and booking reference.",
+      "Model profile, measurements, selected photos, and for booking purpose.",
     href: "https://drive.google.com/file/d/1e_eDRfXAEJUuEp5JQVizPt-e7YRQhXVI/view",
     label: "Open Comp-Card",
     external: true

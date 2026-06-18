@@ -7,6 +7,7 @@ import { Journey } from "@/components/Journey";
 import { NavBar } from "@/components/NavBar";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
+import { Certificates } from "@/components/Certificates";
 
 export default function TechPortfolioPage() {
   return (
@@ -23,6 +24,7 @@ export default function TechPortfolioPage() {
       <Projects />
       <Skills />
       <Journey />
+      <Certificates />
       <Contact />
     </main>
   );

@@ -1,64 +1,86 @@
 import { profile } from "@/data/profile";
 import { SectionTitle } from "./SectionTitle";
 
+type Project = (typeof profile.projects)[number];
+
+function ProjectCard({ project }: { project: Project }) {
+  const liveUrl = project.liveUrl;
+
+  const cardInner = (
+    <div className="project-loop-media">
+      {project.image ? (
+        <img
+          src={project.image}
+          alt={`${project.title} preview`}
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <div className="project-loop-placeholder">
+          <span>{project.title}</span>
+        </div>
+      )}
+
+      <div className="project-loop-gradient" />
+
+      <div className="project-loop-action">
+        <span>{liveUrl ? "View Project ↗" : "iOS Apps Preview"}</span>
+      </div>
+    </div>
+  );
+
+  if (liveUrl) {
+    return (
+      <a
+        className="project-loop-card"
+        href={liveUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`View ${project.title}`}
+      >
+        {cardInner}
+      </a>
+    );
+  }
+
+  return <article className="project-loop-card">{cardInner}</article>;
+}
+
 export function Projects() {
+  const repeatedProjects = Array.from({ length: 3 }).flatMap(
+    () => profile.projects
+  );
+
   return (
-    <section className="section container" id="projects">
-      <SectionTitle
-        eyebrow="Selected Work"
-        title="Web projects and iOS app concepts I’ve built, designed, and iterated."
-        description="A collection of live websites, front-end projects, and iOS product prototypes that reflect my growth in software development, UI/UX, and product thinking."
-      />
+    <section className="section project-loop-section" id="projects">
+      <div className="container">
+        <SectionTitle
+          eyebrow="Selected Work"
+          title="Projects shaped through code, design, and product thinking."
+          description="A clean showcase of selected web and iOS projects built through real development, design exploration, and product thinking."
+        />
+      </div>
 
-      <div className="projects-grid">
-        {profile.projects.map((project, index) => (
-          <article
-            className="project-card project-card-with-media"
-            key={project.title}
-          >
-            <div className="project-media">
-              <span className="project-number-badge">
-                {String(index + 1).padStart(2, "0")}
-              </span>
+      <div className="project-loop-shell">
+        <div className="project-loop-track">
+          <div className="project-loop-group">
+            {repeatedProjects.map((project, index) => (
+              <ProjectCard
+                key={`project-loop-a-${project.title}-${index}`}
+                project={project}
+              />
+            ))}
+          </div>
 
-              {project.image ? (
-                <img src={project.image} alt={`${project.title} preview`} />
-              ) : (
-                <div className="project-media-placeholder">
-                  <span>{project.title}</span>
-                </div>
-              )}
-            </div>
-
-            <div className="project-content">
-              <p className="project-category">{project.category}</p>
-
-              <h3>{project.title}</h3>
-
-              <p>{project.description}</p>
-
-              <p className="impact">{project.impact}</p>
-
-              <div className="tags">
-                {project.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-
-              {project.liveUrl && (
-                <a
-                  className="project-link"
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Visit Website
-                  <span>↗</span>
-                </a>
-              )}
-            </div>
-          </article>
-        ))}
+          <div className="project-loop-group" aria-hidden="true">
+            {repeatedProjects.map((project, index) => (
+              <ProjectCard
+                key={`project-loop-b-${project.title}-${index}`}
+                project={project}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
