@@ -2399,7 +2399,7 @@ a {
   --project-card-width: 560px;
   --project-card-height: 315px;
   --project-gap: 26px;
-  --project-speed: 72s;
+  --project-speed: 82s;
 
   position: relative;
   width: 100vw;
@@ -2582,7 +2582,7 @@ a {
     --project-card-width: 430px;
     --project-card-height: 250px;
     --project-gap: 20px;
-    --project-speed: 64s;
+    --project-speed: 94s;
   }
 
   .project-loop-card {
@@ -2640,7 +2640,7 @@ a {
 .certificate-loop-shell {
   --certificate-card-width: 520px;
   --certificate-gap: 24px;
-  --certificate-speed: 15s;
+  --certificate-speed: 55s;
 
   position: relative;
   width: 100vw;
@@ -2837,7 +2837,7 @@ a {
   .certificate-loop-shell {
     --certificate-card-width: 430px;
     --certificate-gap: 20px;
-    --certificate-speed: 42s;
+    --certificate-speed: 92s;
   }
 
   .certificate-loop-card {
@@ -2855,7 +2855,7 @@ a {
   .certificate-loop-shell {
     --certificate-card-width: 84vw;
     --certificate-gap: 16px;
-    --certificate-speed: 36s;
+    --certificate-speed: 96s;
 
     margin-top: 34px;
     mask-image: none;
