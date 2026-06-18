@@ -3071,3 +3071,96 @@ a {
     transform: none;
   }
 }
+
+/* ========================= */
+/* Mobile Crash Safety Patch */
+/* ========================= */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-y: auto;
+  }
+
+  /* Matikan heavy auto animation di mobile */
+  .project-loop-track,
+  .certificate-loop-track {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  /* Carousel jadi swipe manual */
+  .project-loop-shell,
+  .certificate-loop-shell {
+    width: 100% !important;
+    margin-left: 0 !important;
+    transform: none !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    mask-image: none !important;
+    scrollbar-width: none;
+  }
+
+  .project-loop-shell::-webkit-scrollbar,
+  .certificate-loop-shell::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Jangan render duplicate group di mobile */
+  .project-loop-group:nth-child(2),
+  .certificate-loop-group:nth-child(2) {
+    display: none !important;
+  }
+
+  /* Kurangi GPU-heavy hover effect di mobile */
+  .project-loop-card,
+  .certificate-loop-card,
+  .capability-card {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .project-loop-card:hover,
+  .certificate-loop-card:hover,
+  .capability-card:hover {
+    transform: none !important;
+  }
+
+  .project-loop-media img,
+  .certificate-loop-media img {
+    transform: none !important;
+    transition: none !important;
+    filter: none !important;
+  }
+
+  /* Kurangi blur berat di mobile */
+  .hero-card,
+  .about-card,
+  .capability-card,
+  .project-loop-card,
+  .certificate-loop-card,
+  .glass,
+  .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Kurangi repaint dari background canvas */
+  .tech-network-canvas,
+  .network-canvas,
+  .interactive-background,
+  .interactive-bg {
+    opacity: 0.18 !important;
+    pointer-events: none !important;
+  }
+}
