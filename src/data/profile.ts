@@ -253,12 +253,229 @@ export const profile = {
     image: "/images/certificates/html-gl.png",
     // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
   },
-  {
-    title: "Front End Development - CSS",
+    {
+    title: "Fron End Development - CSS",
     issuer: "GreatLearning",
     year: "2023",
     image: "/images/certificates/css-gl.png",
     // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Tech For Everyone",
+    issuer: "Sololearn",
+    year: "2023",
+    image: "/images/certificates/9.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-1W9HBGH4"
+  },
+  {
+    title: "Blockchain",
+    issuer: "GreatLearning",
+    year: "2023",
+    image: "/images/certificates/10.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Programming Basic",
+    issuer: "GreatLearning",
+    year: "2023",
+    image: "/images/certificates/11.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Responsive Web Design",
+    issuer: "FreeCodeCamp",
+    year: "2023",
+    image: "/images/certificates/12.png",
+    credentialUrl: "https://www.freecodecamp.org/certification/emanuellefrizzia/responsive-web-design"
+  },
+  {
+    title: "Git Tutorial",
+    issuer: "GreatLearning",
+    year: "2023",
+    image: "/images/certificates/13.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Techno Arcade BINUS",
+    issuer: "HIMTI BINUS University",
+    year: "2023",
+    image: "/images/certificates/14.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Python",
+    issuer: "Kaggle",
+    year: "2024",
+    image: "/images/certificates/15.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Front-end for beginners",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/images/certificates/16.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-MEDI04M6"
+  },
+  {
+    title: "HTML Attributes and Tags",
+    issuer: "GreatLearning",
+    year: "2024",
+    image: "/images/certificates/17.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Introduction to Angular",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/images/certificates/18.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-P9DJBAQH"
+  },
+  {
+    title: "Web Development",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/images/certificates/19.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-FF48OQMH"
+  },
+  {
+    title: "CSS Properties",
+    issuer: "GreatLearning",
+    year: "2024",
+    image: "/images/certificates/20.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Tutorial CSS",
+    issuer: "GreatLearning",
+    year: "2024",
+    image: "/images/certificates/21.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-WU0EMZDB"
+  },
+  {
+    title: "Introduction to HTML",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/images/certificates/22.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-OFQUK7ND"
+  },
+  {
+    title: "Getting Started with Git and GitHub",
+    issuer: "IBM",
+    year: "2024",
+    image: "/images/certificates/23.png",
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/WBHA9YMXL4UK"
+  },
+  {
+    title: "Version Control",
+    issuer: "Meta",
+    year: "2024",
+    image: "/images/certificates/24.png",
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/V2XXATKX4NUP"
+  },
+  {
+    title: "Smart Contracts on Blockchain",
+    issuer: "ICP HUB Indonesia",
+    year: "2024",
+    image: "/images/certificates/25.png",
+    // credentialUrl: "https://www.coursera.org/account/accomplishments/verify/V2XXATKX4NUP"
+  },
+  {
+    title: "HackerRank Python",
+    issuer: "HackerRank",
+    year: "2024",
+    image: "/images/certificates/26.png",
+    credentialUrl: "https://www.hackerrank.com/certificates/12e06980f10a"
+  },
+  {
+    title: "JavaScript Algorithms and Data Structures",
+    issuer: "FreeCodeCamp",
+    year: "2024",
+    image: "/images/certificates/27.png",
+    credentialUrl: "https://www.freecodecamp.org/certification/emanuellefrizzia/javascript-algorithms-and-data-structures"
+  },
+    {
+    title: "Legacy JavaScript Algorithms and Data Structures",
+    issuer: "FreeCodeCamp",
+    year: "2024",
+    image: "/images/certificates/28.png",
+    credentialUrl: "https://www.freecodecamp.org/certification/emanuellefrizzia/javascript-algorithms-and-data-structures-v8"
+  },
+  {
+    title: "Javascript Intermediate",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/images/certificates/29.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-ADYNI1WV"
+  },
+  {
+    title: "HackerRank React",
+    issuer: "HackerRank",
+    year: "2024",
+    image: "/images/certificates/30.png",
+    credentialUrl: "https://www.hackerrank.com/certificates/8c5a973dafe4"
+  },
+    {
+    title: "HackerRank Javascript",
+    issuer: "HackerRank",
+    year: "2024",
+    image: "/images/certificates/31.png",
+    credentialUrl: "https://www.hackerrank.com/certificates/d2675f68fc66"
+  },
+  {
+    title: "Introduction to Java",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/images/certificates/32.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-D208NDY1"
+  },
+  {
+    title: "Introduction to C++",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/images/certificates/33.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-1ELIPNA3"
+  },
+  {
+    title: "Coding Foundations",
+    issuer: "Sololearn",
+    year: "2024",
+    image: "/images/certificates/34.png",
+    credentialUrl: "https://www.sololearn.com/en/certificates/CC-B18OXVDX"
+  },
+  {
+    title: "Front End Development",
+    issuer: "Bina Nusantara Computer Club",
+    year: "2024",
+    image: "/images/certificates/35.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-B18OXVDX"
+  },
+  {
+    title: "ICPC INC 2024",
+    issuer: "Bina Nusantara Computer Club",
+    year: "2024",
+    image: "/images/certificates/36.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-B18OXVDX"
+  },
+  {
+    title: "Data Slayer 2.0",
+    issuer: "Telkom University",
+    year: "2025",
+    image: "/images/certificates/37.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-B18OXVDX"
+  },
+  {
+    title: "UI/UX Design",
+    issuer: "Bina Nusantara Computer Club",
+    year: "2024",
+    image: "/images/certificates/38.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-B18OXVDX"
+  },
+  {
+    title: "Back End Development",
+    issuer: "Bina Nusantara Computer Club",
+    year: "2024",
+    image: "/images/certificates/39.png",
+    // credentialUrl: "https://www.sololearn.com/en/certificates/CC-B18OXVDX"
   },
 ],
 
