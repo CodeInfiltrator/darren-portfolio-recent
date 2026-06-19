@@ -1,27 +1,63 @@
-import { profile } from "@/data/profile";
-import { Logo } from "./Logo";
+"use client";
 
-const navItems = ["About", "Projects", "Journey", "Contact"];
+import { useEffect, useState } from "react";
+
+const navItems = [
+  {
+    label: "About",
+    href: "#about"
+  },
+  {
+    label: "Projects",
+    href: "#projects"
+  },
+  {
+    label: "Certificates",
+    mobileLabel: "Certs",
+    href: "#certificates"
+  },
+  {
+    label: "Journey",
+    href: "#journey"
+  },
+  {
+    label: "Contact",
+    href: "#contact"
+  }
+];
 
 export function NavBar() {
-  return (
-    <header className="site-header">
-      <nav className="nav container" aria-label="Primary navigation">
-        <a
-          className="brand"
-          href="#top"
-          aria-label={`${profile.shortName} homepage`}
-        >
-          <Logo />
-        </a>
+  const [isFloating, setIsFloating] = useState(false);
 
-        <div className="nav-links" aria-label="Page sections">
-          {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`}>
-              {item}
-            </a>
-          ))}
-        </div>
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsFloating(window.scrollY > 48);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <header
+      className={`site-header ${isFloating ? "is-floating" : "is-locked"}`}
+    >
+      <nav className="site-nav" aria-label="Main navigation">
+        {navItems.map((item) => (
+          <a key={item.href} href={item.href} className="site-nav-link">
+            <span className="nav-label-desktop">{item.label}</span>
+            <span className="nav-label-mobile">
+              {item.mobileLabel ?? item.label}
+            </span>
+          </a>
+        ))}
       </nav>
     </header>
   );

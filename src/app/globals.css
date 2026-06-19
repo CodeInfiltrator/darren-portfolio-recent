@@ -6,6 +6,7 @@
   --muted: #b7b2a7;
   --line: rgba(255, 255, 255, 0.14);
   --accent: #d7ff72;
+  --lime: #d7ff72;
   --accent-soft: rgba(215, 255, 114, 0.13);
   --shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
 }
@@ -72,17 +73,8 @@ img {
 }
 
 /* ========================= */
-/* Header */
+/* Header / Shared Nav Helpers */
 /* ========================= */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  backdrop-filter: blur(20px);
-  background: rgba(8, 9, 13, 0.72);
-  border-bottom: 1px solid var(--line);
-}
 
 .nav {
   min-height: 72px;
@@ -1300,7 +1292,6 @@ img {
   opacity: 0.42;
 }
 
-.tech-page > .site-header,
 .tech-page > .hero,
 .tech-page > .section,
 .tech-page > .contact-section {
@@ -1308,11 +1299,6 @@ img {
   z-index: 2;
 }
 
-.tech-page .site-header {
-  z-index: 30;
-  background: rgba(8, 9, 13, 0.68);
-  backdrop-filter: blur(14px);
-}
 
 .tech-page .glass-panel,
 .tech-page .stat-card,
@@ -2244,7 +2230,7 @@ a {
   outline-color: rgba(215, 255, 114, 0.45);
 }
 /* ========================= */
-/* About Section â€” 2 Stats Layout Fix */
+/* About Section Ã¢â‚¬â€ 2 Stats Layout Fix */
 /* ========================= */
 
 .tech-page #about .about-grid {
@@ -3073,7 +3059,7 @@ a {
 }
 
 /* ========================= */
-/* Mobile Crash Safety Patch */
+/* Mobile Moving Carousel Safety Patch */
 /* ========================= */
 
 html,
@@ -3090,39 +3076,57 @@ body {
     overscroll-behavior-y: auto;
   }
 
-  /* Matikan heavy auto animation di mobile */
-  .project-loop-track,
-  .certificate-loop-track {
-    animation: none !important;
-    transform: none !important;
-    will-change: auto !important;
+  /* Matikan canvas/network background di mobile */
+  .tech-network-canvas,
+  .network-canvas,
+  .interactive-background,
+  .interactive-bg {
+    display: none !important;
   }
 
-  /* Carousel jadi swipe manual */
+  /* Mobile carousel tetap bergerak, tapi lebih ringan */
+  .project-loop-track {
+    animation: projectLoopMarquee 48s linear infinite !important;
+    will-change: transform;
+  }
+
+  .certificate-loop-track {
+    animation: certificateLoopMarquee 130s linear infinite !important;
+    will-change: transform;
+  }
+
+  /* Jangan jadikan swipe manual, tetap hidden supaya marquee clean */
   .project-loop-shell,
   .certificate-loop-shell {
     width: 100% !important;
     margin-left: 0 !important;
     transform: none !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden !important;
     mask-image: none !important;
-    scrollbar-width: none;
+    -webkit-mask-image: none !important;
   }
 
-  .project-loop-shell::-webkit-scrollbar,
-  .certificate-loop-shell::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Jangan render duplicate group di mobile */
+  /* Duplicate group harus tetap tampil agar infinite animation tidak blank */
   .project-loop-group:nth-child(2),
   .certificate-loop-group:nth-child(2) {
-    display: none !important;
+    display: flex !important;
   }
 
-  /* Kurangi GPU-heavy hover effect di mobile */
+  /* Ukuran mobile lebih ringan */
+  .project-loop-shell {
+    --project-card-width: 82vw;
+    --project-card-height: 220px;
+    --project-gap: 16px;
+    margin-top: 34px;
+  }
+
+  .certificate-loop-shell {
+    --certificate-card-width: 84vw;
+    --certificate-gap: 16px;
+    margin-top: 34px;
+  }
+
+  /* Matikan efek hover berat di mobile */
   .project-loop-card,
   .certificate-loop-card,
   .capability-card {
@@ -3134,12 +3138,20 @@ body {
   .certificate-loop-card:hover,
   .capability-card:hover {
     transform: none !important;
+    box-shadow: none !important;
   }
 
+  /* Matikan image zoom/filter berat di mobile */
   .project-loop-media img,
   .certificate-loop-media img {
     transform: none !important;
     transition: none !important;
+    filter: none !important;
+  }
+
+  .project-loop-card:hover .project-loop-media img,
+  .certificate-loop-card:hover .certificate-loop-media img {
+    transform: none !important;
     filter: none !important;
   }
 
@@ -3155,12 +3167,427 @@ body {
     -webkit-backdrop-filter: none !important;
   }
 
-  /* Kurangi repaint dari background canvas */
-  .tech-network-canvas,
-  .network-canvas,
-  .interactive-background,
-  .interactive-bg {
-    opacity: 0.18 !important;
-    pointer-events: none !important;
+  /* Button tetap terlihat tapi ringan */
+  .project-loop-action {
+    left: 16px;
+    bottom: 16px;
+    min-height: 40px;
+    padding: 0 15px;
+    font-size: 0.78rem;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Certificate card mobile */
+  .certificate-loop-card {
+    border-radius: 24px;
+  }
+
+  .certificate-loop-media img {
+    padding: 8px;
+  }
+
+  .certificate-loop-content {
+    min-height: 138px;
+    padding: 20px;
+  }
+
+  .certificate-loop-content h3 {
+    font-size: 1rem;
+  }
+
+  .certificate-loop-content p {
+    font-size: 0.84rem;
+  }
+
+  .certificate-loop-meta {
+    padding-top: 18px;
+  }
+
+  /* Project card mobile */
+  .project-loop-card {
+    border-radius: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-loop-track,
+  .certificate-loop-track {
+    animation: none !important;
+  }
+
+  .project-loop-card,
+  .certificate-loop-card,
+  .project-loop-media img,
+  .certificate-loop-media img,
+  .project-loop-action {
+    transition: none !important;
+  }
+}
+
+/* ========================= */
+/* FINAL NAVBAR */
+/* Initial Header -> Floating Pill */
+/* No Blur */
+/* ========================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 96px;
+  }
+}
+
+/* Header wrapper */
+.tech-page > .site-header,
+.tech-page .site-header,
+.site-header {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99999 !important;
+
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  margin: 0 !important;
+
+  pointer-events: none !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+
+  transition:
+    top 320ms ease,
+    padding 320ms ease,
+    background 320ms ease;
+}
+
+/* ========================= */
+/* Initial header state */
+/* ========================= */
+
+.site-header.is-locked {
+  top: 0 !important;
+  padding: 0 !important;
+
+  background: #08090d !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09) !important;
+}
+
+/* Full header bar */
+.site-header.is-locked .site-nav {
+  width: 100% !important;
+  max-width: 1120px !important;
+  min-height: 72px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+
+  padding: 0 20px !important;
+  margin: 0 auto !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  background: transparent !important;
+  box-shadow: none !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+
+  transform: none !important;
+  animation: none !important;
+
+  pointer-events: auto !important;
+}
+
+/* ========================= */
+/* Floating state after scroll */
+/* ========================= */
+
+.site-header.is-floating {
+  top: 18px !important;
+  padding: 0 20px !important;
+
+  background: transparent !important;
+  border-bottom: 0 !important;
+}
+
+.site-header.is-floating .site-nav {
+  width: fit-content !important;
+  max-width: calc(100vw - 40px) !important;
+  min-height: auto !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+
+  padding: 7px !important;
+  margin: 0 !important;
+
+  border-radius: 999px !important;
+  border: 1px solid rgba(215, 255, 114, 0.22) !important;
+
+  background: #0c0d12 !important;
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(215, 255, 114, 0.04) !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+
+  pointer-events: auto !important;
+
+  animation: navbarFloat 3s ease-in-out infinite;
+}
+
+@keyframes navbarFloat {
+  0% {
+    transform: translateY(0) scale(0.97);
+  }
+
+  50% {
+    transform: translateY(5px) scale(0.97);
+  }
+
+  100% {
+    transform: translateY(0) scale(0.97);
+  }
+}
+
+/* ========================= */
+/* Links */
+/* ========================= */
+
+.site-nav-link {
+  position: relative !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-height: 42px !important;
+  padding: 0 18px !important;
+
+  border-radius: 999px !important;
+
+  color: rgba(244, 242, 234, 0.72) !important;
+  background: transparent !important;
+
+  text-decoration: none !important;
+  font-size: 0.92rem !important;
+  font-weight: 760 !important;
+  letter-spacing: -0.025em !important;
+  white-space: nowrap !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+
+  transition:
+    color 220ms ease,
+    background 220ms ease,
+    transform 220ms ease !important;
+}
+
+.site-nav-link:hover {
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.075) !important;
+  transform: translateY(-1px) !important;
+}
+
+.site-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 8px;
+
+  height: 2px;
+  border-radius: 999px;
+
+  background: var(--accent);
+  opacity: 0;
+  transform: scaleX(0.4);
+
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.site-nav-link:hover::after {
+  opacity: 0.9;
+  transform: scaleX(1);
+}
+
+.nav-label-mobile {
+  display: none;
+}
+
+/* ========================= */
+/* Tablet */
+/* ========================= */
+
+@media (max-width: 980px) {
+  .site-header.is-locked .site-nav {
+    max-width: 100% !important;
+    min-height: 64px !important;
+    padding: 0 16px !important;
+  }
+
+  .site-header.is-floating {
+    top: 14px !important;
+    padding: 0 16px !important;
+  }
+
+  .site-header.is-floating .site-nav {
+    max-width: calc(100vw - 24px) !important;
+    padding: 6px !important;
+  }
+
+  .site-nav-link {
+    min-height: 40px !important;
+    padding: 0 14px !important;
+    font-size: 0.86rem !important;
+  }
+}
+
+/* ========================= */
+/* Mobile */
+/* ========================= */
+
+@media (max-width: 640px) {
+  .site-header.is-locked {
+    background: #08090d !important;
+  }
+
+  .site-header.is-locked .site-nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 56px !important;
+
+    justify-content: space-between !important;
+    gap: 2px !important;
+
+    padding: 0 8px !important;
+  }
+
+  .site-header.is-floating {
+    top: 10px !important;
+    padding: 0 10px !important;
+  }
+
+  .site-header.is-floating .site-nav {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+
+    justify-content: space-between !important;
+    gap: 2px !important;
+
+    padding: 5px !important;
+    border-radius: 999px !important;
+
+    background: #0c0d12 !important;
+
+    animation: navbarFloatMobile 3.2s ease-in-out infinite;
+  }
+
+  @keyframes navbarFloatMobile {
+    0% {
+      transform: translateY(0) scale(0.99);
+    }
+
+    50% {
+      transform: translateY(4px) scale(0.99);
+    }
+
+    100% {
+      transform: translateY(0) scale(0.99);
+    }
+  }
+
+  .site-nav-link {
+    flex: 1 !important;
+    min-height: 38px !important;
+    padding: 0 3px !important;
+
+    font-size: 0.72rem !important;
+    font-weight: 780 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .nav-label-desktop {
+    display: none !important;
+  }
+
+  .nav-label-mobile {
+    display: inline !important;
+  }
+
+  .site-nav-link::after {
+    left: 24%;
+    right: 24%;
+    bottom: 6px;
+  }
+
+  .site-nav-link:hover {
+    transform: none !important;
+    background: transparent !important;
+  }
+}
+
+/* ========================= */
+/* Extra Small Phone */
+/* ========================= */
+
+@media (max-width: 380px) {
+  .site-header.is-floating {
+    top: 8px !important;
+    padding: 0 8px !important;
+  }
+
+  .site-header.is-floating .site-nav {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    padding: 4px !important;
+  }
+
+  .site-nav-link {
+    min-height: 36px !important;
+    padding: 0 2px !important;
+    font-size: 0.65rem !important;
+  }
+}
+
+/* ========================= */
+/* Accessibility */
+/* ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header.is-floating .site-nav {
+    animation: none !important;
+  }
+
+  .site-nav,
+  .site-nav-link,
+  .site-nav-link::after {
+    transition: none !important;
   }
 }

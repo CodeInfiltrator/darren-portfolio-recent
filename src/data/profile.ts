@@ -200,6 +200,16 @@ export const profile = {
       "Explored user flow, scheduling behavior, SwiftUI interface structure, and Apple Human Interface Guidelines.",
     tags: ["SwiftUI", "HIG", "Product Design", "iOS"],
     image: "/images/projects/soulace.png"
+  },
+  {
+    title: "SisaBaik",
+    category: "iOS App Concept",
+    description:
+      "A group yoga scheduling app concept that helps users create sessions, invite friends, and coordinate practice more easily.",
+    impact:
+      "Explored user flow, scheduling behavior, SwiftUI interface structure, and Apple Human Interface Guidelines.",
+    tags: ["SwiftUI", "HIG", "Product Design", "iOS"],
+    image: "/images/projects/sisabaik.png"
   }
 ],
 
