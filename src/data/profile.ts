@@ -41,7 +41,6 @@ export const profile = {
       "Next.js",
       "TailwindCSS",
       "Bootstrap",
-      "Next.js",
       "TypeScript",
       "JavaScript",
       "HTML",
