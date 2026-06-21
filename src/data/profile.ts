@@ -101,6 +101,18 @@ export const profile = {
     image: "/images/projects/composite.png"
   },
   {
+    slug: "jpmagency",
+    title: "JPMAgency",
+    category: "Website Platform",
+    description:
+      "A modern website experience built to introduce models with strong visual identity, clear messaging, and responsive presentation.",
+    impact:
+      "Strengthened my ability to build polished landing pages with visual hierarchy and brand-focused communication.",
+    tags: ["React", "Vercel", "Branding", "Landing Page"],
+    liveUrl: "https://jpmagency.vercel.app/",
+    image: "/images/projects/jpmagency.png"
+  },
+  {
     title: "Digistry",
     category: "Digital Product Marketplace",
     description:
