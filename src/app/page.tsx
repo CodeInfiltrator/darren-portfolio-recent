@@ -20,7 +20,7 @@ const links = [
     title: "Modeling Comp-Card",
     description:
       "Model profile, measurements, selected photos, and for booking purpose.",
-    href: "https://drive.google.com/file/d/1e_eDRfXAEJUuEp5JQVizPt-e7YRQhXVI/view",
+    href: "https://drive.google.com/file/d/14QUy_aYYcRKdvyEn0aMKQleDXfvVk_GW/view",
     label: "Open Comp-Card",
     external: true
   },
