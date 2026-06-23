@@ -109,7 +109,7 @@ export const profile = {
     impact:
       "Strengthened my ability to build polished landing pages with visual hierarchy and brand-focused communication.",
     tags: ["React", "Vercel", "Branding", "Landing Page"],
-    liveUrl: "https://jpmagency.vercel.app/",
+    liveUrl: "https://jakartaprestigemodels.com/",
     image: "/images/projects/jpmagency.png"
   },
   {
