@@ -25,10 +25,10 @@ const links = [
     external: true
   },
   {
-    title: "Support / Saweria",
-    description: "Support my journey in tech, modeling, and personal growth.",
-    href: "https://saweria.co/frizziadarren",
-    label: "Open Saweria",
+    title: "Contact Me",
+    description: "Contact me for more details.",
+    href: "https://api.whatsapp.com/send?phone=6282127728082",
+    label: "Open Whatsapp",
     external: true
   }
 ];
